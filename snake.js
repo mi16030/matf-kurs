@@ -23,7 +23,12 @@ let score=0;
 let dir;
 let ind=false;
 document.addEventListener("keydown", direction);
-
+let munch = new Audio("munch3.mp3");
+let img = new Image();
+img.src = "apple-remove.png";
+//img.setColorToAlpha(0, 0);
+let bg = new Image();
+bg.src = "field.jpg";
 function createBait() {
     
     
@@ -79,6 +84,7 @@ function collision(head,array){
 
 function draw(){
     ctx.clearRect(0, 0, 810, 600);
+    ctx.drawImage(bg, 0, 0, 810, 600);
 
     for(let i =0; i<snake.length; i++){
         ctx.fillStyle = "blue";
@@ -89,7 +95,7 @@ function draw(){
     }
     
     ctx.fillStyle = "black";
-    ctx.fillRect(food.x, food.y, box, box);
+    ctx.drawImage(img, food.x, food.y, 1.2*box, 1.2*box);
     
     document.getElementById("score").innerHTML="</br>"+score;
 
@@ -115,6 +121,7 @@ function draw(){
     
     // ako pojedemo hranu
     if(oldHeadX == food.x && oldHeadY == food.y){
+        munch.play();
         score++;
         food = createBait();
         ctx.fillStyle = "black";
