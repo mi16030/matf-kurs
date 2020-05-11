@@ -14,15 +14,32 @@
              .text-center {
             text-align: center;
             }
+            .buttons {
+                display: flex;
+                justify-content: center;
+                padding: 50px;
+            }
+            .divider{
+                width:30px;
+                height:auto;
+                display:inline-block;
+            }
            
 		</style>
 	</head>
 
 	<body>
-		<div class="game_container">
+		<div>
 			<h3 class="text-center" id="score-container">Score
 				<span id="score"><br/>0</span></h3>
-			<canvas id="game-area" width="810" height="600"></canvas>	
+			<canvas id="game-area" width="1280" height="640"></canvas>	
+		</div>
+		<div class="buttons">
+            <button id="start-button">Start game</button>
+            <div class="divider"></div>
+            <button id="stop-button">Stop game</button>
+            <div class="divider"></div>
+            <button id="new-game-button">New game</button>
 		</div>
 		
 		<script type="text/javascript" src="snake.js"></script>
