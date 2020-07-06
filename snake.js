@@ -1,3 +1,10 @@
+let username = "";
+
+
+username=loadUsername();
+console.log(username);
+
+
 const canvas = document.getElementById("game-area");
 const ctx = canvas.getContext("2d");
 const startBtn = document.getElementById("start-button");
@@ -75,7 +82,7 @@ class Snake{
         ctx.drawImage(img, this.food.x, this.food.y, 1.15*box, 1.15*box);
     }
     
-    move(){
+    async move(){
         let snake = this.snake;
        
         this.draw();
@@ -122,6 +129,8 @@ class Snake{
             
             alert('Izgubili ste! Vas rezultat je: '+score);
             this.stop();
+            await sendResult(username, score);
+            getResult();
         }
         
         //ako nismo ni pojeli ni udarili zapravo stavljamo novi head na pocetak niza snake
