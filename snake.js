@@ -143,11 +143,9 @@ class Snake{
         let y=Math.floor(Math.random()*this.rowLen+1)*box;
         console.log({x:x, y:y});
         
-        if(collision({x:x, y:y}, this.snake)){
-            this.createBait();
-        }else{
+        
             this.food={x:x, y:y};
-        }
+        
     }
     
 }
